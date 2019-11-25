@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+.wrapPokemon {
+    margin: 20px;
+    width: 200px;
+    height: 300px;
+    box-shadow: -1px 0px 20px 1px rgba(0,0,0,0.75);;
+    padding: 5px;
+    overflow: auto;
+    transition-property: transform;
+    transition-duration: 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.wrapPokemon:hover {
+    transform: scale(1.1);
+}
+
+.cajaNombre {
+    background-color: #dcdef5;
+    width: 100%; 
+    margin: 0px 5px;
+    padding: 10px 0px;
+}
+
+.nombre {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.foto {
+    width: 100%;
+}
