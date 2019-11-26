@@ -16,7 +16,7 @@ body {
 .wrapPokemon {
     margin: 20px;
     padding: 5px;
-    min-width: 400px;
+    min-width: 450px;
     height: auto;
     box-shadow: 2px 4px 24px -8px rgba(0,0,0,0.75);
     transition-property: transform;
@@ -72,4 +72,34 @@ body {
     width: 95%;
     text-align: center;
     margin-left: 5px;
+}
+
+.btnVerMas {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 10px;
+    background-color: lightblue;
+    border: none;
+    outline: 0;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.btnVerMas:active {
+    transform: translateY(5px);
+}
+
+.movesWrap {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #dcdef5;
+}
+
+.move {
+    margin: 5px;
 }
