@@ -1,15 +1,4 @@
 
-const API_POKEMON = 'https://pokeapi.co/api/v2/pokemon';
-const API_POKEMON_DESCRIPTION = 'https://pokeapi.co/api/v2/characteristic/';
-
-const body = document.querySelector('body');
-let pokemons;
-
-// Cargar objetos "pokemon"
-loadPokemons()
-    .then(rellenarInformacion)
-    .catch(err => err);
-
 async function loadPokemons() {
     const response = await fetch(API_POKEMON);
     const json     = await response.json();
@@ -25,24 +14,49 @@ function rellenarInformacion() {
         let src           = jsonPokemon.sprites['front_default'];
 
         // Recoger descripcion del pokemon a partir de su id
-        const responseDescription = await fetch(API_POKEMON_DESCRIPTION + `${jsonPokemon.id}`);
+        const responseDescription = await fetch(API_POKEMON_DESCRIPTION + jsonPokemon.id);
         const jsonDescription     = await responseDescription.json();
         let description           = jsonDescription.descriptions[1].description;
 
         // Crear la estructura html con la información del pokemon y agregarla al body
-        let pokemonBox = createPokemonBox(pokemon.name, src, description);
+        let pokemonBox = createPokemonBox(pokemon.name, src, description, jsonPokemon.id);
         body.innerHTML += pokemonBox;
     })
 }
 
-function createPokemonBox(nombre, src, description) {
+function createPokemonBox(nombre, src, description, id) {
     return `
         <div class="wrapPokemon">
+
             <div class="cajaNombre">
-                <p class="nombre">${nombre}</p>
+                <p class="nombre">
+                    <span class="id">#${id}</span> ${nombre}
+                </p>
             </div>
-            <img src="${src}" class="foto">
-            <p class="descripcion">${description}</p>
+
+            <div class="contenido">
+                <div class="imagen">
+                    <img src="${src}" class="foto">
+                </div>
+                <div class="info">
+                    <div class="wrapDescription">
+                        <h3>DESCRIPTION</h3>
+                        <p class="descripcion">${description}</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     `;
 }
+
+const API_POKEMON = 'https://pokeapi.co/api/v2/pokemon';
+const API_POKEMON_DESCRIPTION = 'https://pokeapi.co/api/v2/characteristic/';
+
+const body = document.querySelector('body');
+let pokemons;
+
+// Cargar objetos "pokemon"
+loadPokemons()
+    .then(rellenarInformacion)
+    .catch(err => err);

@@ -10,21 +10,22 @@ body {
     justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 50px;
+    background-color: #DEDEDE;
 }
 
 .wrapPokemon {
     margin: 20px;
-    width: 200px;
-    height: 300px;
-    box-shadow: -1px 0px 20px 1px rgba(0,0,0,0.75);;
     padding: 5px;
-    overflow: auto;
+    min-width: 400px;
+    height: auto;
+    box-shadow: 2px 4px 24px -8px rgba(0,0,0,0.75);
     transition-property: transform;
     transition-duration: 0.2s;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    background-color: #FFFFFF;
 }
 
 .wrapPokemon:hover {
@@ -44,6 +45,31 @@ body {
     font-weight: bold;
 }
 
+.contenido {
+    margin-top: 5px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
 .foto {
     width: 100%;
+    background: lightcoral;
+}
+
+.id {
+    font-size: 20px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.wrapDescription {
+    width: 95%;
+    text-align: center;
+    margin-left: 5px;
 }
